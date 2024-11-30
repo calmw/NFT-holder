@@ -2,7 +2,6 @@ package data
 
 import (
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 	"nft-data/pkg/db"
 	"nft-data/pkg/models"
@@ -25,11 +24,7 @@ func ParseNft(nft models.NftData) {
 
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		db.Mysql.Model(&models.NftData{}).Where("id=?", nft.Id).Update("holder", 1)
-	}
-
-	fmt.Println(err, 999)
-
-	if err == nil {
+	} else if err == nil {
 		ParseNft(n)
 	}
 
