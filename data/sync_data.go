@@ -71,7 +71,7 @@ func SaveDataFromGraph(nftAddress, graphName string) bool {
 			log.Println(err.Error())
 			return false
 		}
-		fmt.Println(len(rechargeRecord.Data.TransferLogs), 12312)
+
 		if len(rechargeRecord.Data.TransferLogs) <= 0 {
 			log.Println("没数据了", index)
 			return false
